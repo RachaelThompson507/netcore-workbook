@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BaseProject
 {
+    //just another test will remove
     public class Program
     {
         public static void Main(string[] args)

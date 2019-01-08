@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "_MyLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Layout</title>
+</head>
+<body>
+    <h1>This is a different view.</h1>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+</body>
+</html>
+

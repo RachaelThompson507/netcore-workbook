@@ -8,6 +8,7 @@ namespace ToDoApp.Controllers
 {
     public class ToDoController : Controller
     {
+        public List<Models.ToDo> list = new List<Models.ToDo>;
         public IActionResult Index()
         {
             return View();

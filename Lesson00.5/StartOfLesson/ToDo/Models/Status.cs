@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Models
 {
+    //note
     public class Status
     {
         public int Id { get; set; }

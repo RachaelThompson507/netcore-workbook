@@ -1,7 +1,23 @@
-﻿
+﻿@model List<ToDo>  
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
+
+<h3>To Do's :</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Deascription</th>
+    </tr>
+    @foreach (var todo in Model)
+    {
+        <tr>
+            <td>@todo.Id </td>
+            <td>@todo.Description</td>
+        </tr>
+    }
+</table>
+
 

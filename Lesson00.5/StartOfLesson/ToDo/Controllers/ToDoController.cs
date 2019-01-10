@@ -14,9 +14,10 @@ namespace ToDoApp.Controllers
             new Models.ToDo {Id = 2, Description = "HEB"},
             new Models.ToDo {Id = 3, Description = "Code and Chill"},
         };
+
         public IActionResult Index()
         {
-            return View();
+            return View(list);
         }
     }
 }

@@ -7,5 +7,7 @@ namespace ToDoApp.Models
 {
     public class ToDo
     {
+        public int Id { get; internal set; }
+        public string Description { get; internal set; }
     }
 }

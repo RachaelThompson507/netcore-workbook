@@ -8,7 +8,12 @@ namespace ToDoApp.Controllers
 {
     public class ToDoController : Controller
     {
-        public List<Models.ToDo> list = new List<Models.ToDo>;
+        public List<Models.ToDo> list = new List<Models.ToDo>()
+        {
+            new Models.ToDo {Id = 1, Description = "Do Laundry"},
+            new Models.ToDo {Id = 2, Description = "HEB"},
+            new Models.ToDo {Id = 3, Description = "Code and Chill"},
+        };
         public IActionResult Index()
         {
             return View();

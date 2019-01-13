@@ -22,14 +22,13 @@ namespace IssueTracker.DataAccess.Translators
                 Estimate = issue.Estimate.ToString(),
                 PastStates = issue.PastStates()
             };
-            //issue.Type < (enum hexidecimal flag) = result status ??
             /* 
-             I feel like the issue is here with the logic of (<) opporator. 
-             */
-            if ((int)issue.Type < 1) result.Status = "Not Started";
-            else if ((int)issue.Type < 2) result.Status = "In Progress"; 
-            else if ((int)issue.Type < 4) result.Status = "In Review";
-            else result.Status = "Done";
+                Program does not have the ability to go backwards- Status only has forward capability
+            */
+            if ((decimal)issue.Type<1) result.Status = "Not Started";
+            else if ((decimal)issue.Type <2) result.Status = "In Progress"; 
+            else if ((decimal)issue.Type <3) result.Status = "In Review";
+            else if ((decimal)issue.Type <5) result.Status =  "Done";
 
             return result;
         }

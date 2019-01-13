@@ -10,9 +10,10 @@ namespace IssueTracker.DataAccess.Translators
     {
         public IIssue ToDomain(Contracts.Issue issue)
         {
+            //if issue is null return null (ie- issue not instantiated yet?)
             if (issue == null)
                 return null;
-
+            // issue domain contracts 
             var result = new Domain.Contracts.Issue
             {
                 Id = issue.Id,
@@ -21,8 +22,12 @@ namespace IssueTracker.DataAccess.Translators
                 Estimate = issue.Estimate.ToString(),
                 PastStates = issue.PastStates()
             };
+            //issue.Type < (enum hexidecimal flag) = result status ??
+            /* 
+             I feel like the issue is here with the logic of (<) opporator. 
+             */
             if ((int)issue.Type < 1) result.Status = "Not Started";
-            else if ((int)issue.Type < 2) result.Status = "In Progress";
+            else if ((int)issue.Type < 2) result.Status = "In Progress"; 
             else if ((int)issue.Type < 4) result.Status = "In Review";
             else result.Status = "Done";
 

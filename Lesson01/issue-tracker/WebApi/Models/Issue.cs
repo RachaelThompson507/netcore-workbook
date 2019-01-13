@@ -18,9 +18,9 @@ namespace WebApi.Models
         public string Estimate { get; set; }
 
         public string Description { get; set; }
-
+        //get Status 
         public string Status { get; set; }
-
+        //get Past States (PastStatuses)
         public List<string> PastStates { get; set; }
     }
 }

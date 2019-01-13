@@ -56,7 +56,7 @@ namespace IssueTracker.Data.Repositories
             {
                 current.Type |= translated.Type;
             }
-
+            //issue could be here with taking the exsisting id and making it the current value
             issues.AddOrUpdate(current.Id.Value, current, (id, existing) => current);
 
             return issue;

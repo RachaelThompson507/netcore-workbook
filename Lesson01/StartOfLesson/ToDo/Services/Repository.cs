@@ -19,5 +19,11 @@ namespace ToDoApp.Services
         {
             new ToDo { Id = 1, Title = "My First ToDo", Description = "Get the app working", Status = status[2] }
         };
+
+        public static ToDo GetTodoById(int id)
+        {
+            var todo = list.SingleOrDefault( t => t.Id == id );
+            return todo;
+        }
     }
 }

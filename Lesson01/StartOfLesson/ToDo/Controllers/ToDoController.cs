@@ -18,7 +18,8 @@ namespace ToDoApp.Controllers
         // GET: ToDo/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var todo = Repository.GetTodoById(id);
+            return View(todo);
         }
 
         // GET: ToDo/Create
@@ -47,7 +48,8 @@ namespace ToDoApp.Controllers
         // GET: ToDo/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var editTodo = Repository.GetTodoById(id);
+            return View(editTodo);
         }
 
         // POST: ToDo/Edit/5

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using ToDoApp.Models;
 
 namespace ToDoApp.Services
@@ -24,6 +25,35 @@ namespace ToDoApp.Services
         {
             var todo = list.SingleOrDefault( t => t.Id == id );
             return todo;
+        }
+
+        public static void SaveTodo(int id, IFormCollection collection)
+        {
+            //add logic to pass to the controller
+            //get the current Todo based on ID
+            var saveTodo = list.SingleOrDefault(t => t.Id == id);
+            //override each property with values from collection
+            foreach ( var collected in collection)
+            {
+
+            }
+            //return saved todo
+        }
+        public static void CreateTodo (IFormCollection collection)
+        {
+            //no need to get anything from the list.
+
+            //create a new object of type todo and append values from collection 
+
+            // add new todo to list
+
+        }
+        public static void DeleteTodo(int id, IFormCollection collection)
+        {
+            //find todo 
+            var DeleteTodo = list.SingleOrDefault(t => t.Id == id);
+            // delete from list
+
         }
     }
 }

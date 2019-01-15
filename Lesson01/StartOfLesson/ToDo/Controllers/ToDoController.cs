@@ -36,6 +36,8 @@ namespace ToDoApp.Controllers
             try
             {
                 // TODO: Add insert logic here
+                //call the repository with the new method we are going to create
+                //Repo.CreateTodo()--> missing something
 
                 return RedirectToAction(nameof(Index));
             }
@@ -59,8 +61,8 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-
+                // TODO: Add update logic
+                Repository.SaveTodo(id, collection);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -72,7 +74,8 @@ namespace ToDoApp.Controllers
         // GET: ToDo/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var DeleteTodo = Repository.GetTodoById(id);
+            return View(DeleteTodo);
         }
 
         // POST: ToDo/Delete/5
@@ -82,8 +85,7 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                //repo.DeleteTodo()-->missing something
                 return RedirectToAction(nameof(Index));
             }
             catch

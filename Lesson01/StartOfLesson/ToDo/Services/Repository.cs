@@ -33,18 +33,14 @@ namespace ToDoApp.Services
             //get the current Todo based on ID
             var saveTodo = list.SingleOrDefault(t => t.Id == id);
             //override each property with values from collection
-            foreach ( var collected in collection)
-            {
 
-            }
             //return saved todo
         }
         public static void CreateTodo (IFormCollection collection)
         {
             //no need to get anything from the list.
-
             //create a new object of type todo and append values from collection 
-
+         
             // add new todo to list
 
         }
@@ -53,6 +49,7 @@ namespace ToDoApp.Services
             //find todo 
             var DeleteTodo = list.SingleOrDefault(t => t.Id == id);
             // delete from list
+            list.Remove(DeleteTodo);
 
         }
     }

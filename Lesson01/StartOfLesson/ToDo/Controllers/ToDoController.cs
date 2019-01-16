@@ -38,7 +38,7 @@ namespace ToDoApp.Controllers
                 // TODO: Add insert logic here
                 //call the repository with the new method we are going to create
                 //Repo.CreateTodo()--> missing something
-
+                Repository.CreateTodo(collection);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -86,6 +86,7 @@ namespace ToDoApp.Controllers
             try
             {
                 //repo.DeleteTodo()-->missing something
+                Repository.DeleteTodo(id,collection);
                 return RedirectToAction(nameof(Index));
             }
             catch

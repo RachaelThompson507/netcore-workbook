@@ -36,13 +36,19 @@ namespace ToDoApp.Services
 
             //return saved todo
         }
-        public static void CreateTodo (IFormCollection collection)
+        public static void CreateTodo(IFormCollection collection)
         {
             //no need to get anything from the list.
             //create a new object of type todo and append values from collection 
-         
+            ToDo todoNew = new ToDo()
+            {
+                  Id = Convert.ToInt32(collection["Id"]),
+                 Title = collection["Title"],
+                 Description = collection["Description"],
+                 Status = collection["Status"],
+            };
             // add new todo to list
-
+            list.Add(todoNew);
         }
         public static void DeleteTodo(int id, IFormCollection collection)
         {

@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ToDoApp.Models;
 using ToDoApp.Services;
 
 namespace ToDoApp.Controllers
@@ -86,7 +84,7 @@ namespace ToDoApp.Controllers
             try
             {
                 //repo.DeleteTodo()-->missing something
-                Repository.DeleteTodo(id,collection);
+                Repository.DeleteTodo(id, collection);
                 return RedirectToAction(nameof(Index));
             }
             catch

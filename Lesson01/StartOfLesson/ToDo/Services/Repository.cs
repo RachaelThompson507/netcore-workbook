@@ -45,7 +45,7 @@ namespace ToDoApp.Services
                   Id = Convert.ToInt32(collection["Id"]),
                  Title = collection["Title"],
                  Description = collection["Description"],
-                 Status = collection["Status"],
+                 Status = status[0]
             };
             // add new todo to list
             list.Add(todoNew);

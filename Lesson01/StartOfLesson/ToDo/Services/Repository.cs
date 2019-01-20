@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -27,14 +28,17 @@ namespace ToDoApp.Services
             return todo;
         }
 
-        public static void SaveTodo(int id, IFormCollection collection)
+        public static List<ToDo> SaveTodo(int id, IFormCollection collection)
         {
             //add logic to pass to the controller
             //get the current Todo based on ID
-            var saveTodo = list.SingleOrDefault(t => t.Id == id);
             //override each property with values from collection
-
+           // list.Where(i => i.Id == id).ToList().ForEach(i1 => i1.Id = Convert.ToInt32(collection["Id"]));
+            list.Where(t1 => t1.Id == id).ToList().ForEach(t2 => t2.Title = collection["Title"]);
+            list.Where(t3 => t3.Id == id).ToList().ForEach(t4 => t4.Description = collection["Description"]);
+            list.Where(t5 => t5.Id == id).ToList().ForEach(t6 => t6.Status = status[2]);
             //return saved todo
+            return list;
         }
         public static void CreateTodo(IFormCollection collection)
         {
@@ -45,7 +49,7 @@ namespace ToDoApp.Services
                 Id = Convert.ToInt32(collection["Id"]),
                 Title = collection["Title"],
                 Description = collection["Description"],
-                Status = status[0],
+                Status = status[1]
             };
 
             list.Add(todoNew);

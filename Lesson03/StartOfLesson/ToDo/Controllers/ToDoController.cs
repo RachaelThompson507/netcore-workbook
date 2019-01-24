@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+//using Microsoft.Extensions.Logging;
 using ToDoApp.Models;
 using ToDoApp.Services;
 
@@ -8,9 +9,18 @@ namespace ToDoApp.Controllers
     public class ToDoController : Controller
     {
 
+        //private readonly ILogger <ToDoController> _logger;
+
+        //constructor BOB (lol!) Can he build it, yes he can!
+       // public ToDoController(ILogger<ToDoController> logger)
+       // {
+       //     _logger = logger;
+      //  }
+
         // GET: ToDo
         public ActionResult Index()
         {
+           // _logger.LogWarning("To Do Controller, Index, Action");
             return View(Repository.ToDos);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace ToDoApp.Middleware
 {
@@ -20,7 +21,8 @@ namespace ToDoApp.Middleware
         //route data https context value 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            _logger.LogError("Middleware!!!");
+            //Contract.Ensures(Contract.Result<Task>() != null);
+            _logger.LogError(context.Request.Path);
             await next(context);
         }
     }

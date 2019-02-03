@@ -1,34 +1,23 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ToDoApp.Models;
+using ToDoApp.Services;
 
 namespace ToDoApp.Controllers
 {
     public class ToDoController : Controller
     {
-        private static Dictionary<int, Status> status = new Dictionary<int, Status>
-        {
-            { 1, new Status { Id = 1, Value = "Not Started" } },
-            { 2, new Status { Id = 2, Value = "In Progress" } },
-            { 3, new Status { Id = 3, Value = "Done" } }
-        };
-
-        private static List<ToDo> list = new List<ToDo>
-        {
-            new ToDo { Id = 1, Title = "My First ToDo", Description = "Get the app working", Status = status[2] }
-        };
 
         // GET: ToDo
         public ActionResult Index()
         {
-            return View(list);
+            return View(Repository.list);
         }
 
         // GET: ToDo/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var todo = Repository.GetTodoById(id);
+            return View(todo);
         }
 
         // GET: ToDo/Create
@@ -45,7 +34,9 @@ namespace ToDoApp.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                //call the repository with the new method we are going to create
+                //Repo.CreateTodo()--> missing something
+                Repository.CreateTodo(collection);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -57,7 +48,8 @@ namespace ToDoApp.Controllers
         // GET: ToDo/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var editTodo = Repository.GetTodoById(id);
+            return View(editTodo);
         }
 
         // POST: ToDo/Edit/5
@@ -67,8 +59,8 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-
+                // TODO: Add update logic
+                Repository.SaveTodo(id, collection);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -80,7 +72,8 @@ namespace ToDoApp.Controllers
         // GET: ToDo/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var DeleteTodo = Repository.GetTodoById(id);
+            return View(DeleteTodo);
         }
 
         // POST: ToDo/Delete/5
@@ -90,8 +83,8 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                //repo.DeleteTodo()-->missing something
+                Repository.DeleteTodo(id, collection);
                 return RedirectToAction(nameof(Index));
             }
             catch
